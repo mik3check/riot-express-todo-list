@@ -5,14 +5,14 @@ services: mongodb
 cache:
   directories:
   - "node_modules"
-sudo: false
+# sudo: false
 install:
   - npm install
 script:
   - npm test
 deploy:
   - provider: script
-    skip_cleanup: true
-    script: chmod +x ./deploy.sh && ./deploy.js
+    cleanup: true
+    script: chmod +x ./deploy.sh && ./deploy.sh
     on:
       branch: master
